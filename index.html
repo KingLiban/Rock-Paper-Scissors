@@ -5,75 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-   <script>
-    let humanScore = 0;
-    let computerScore = 0;
-    
-    play();
+<body style="display: flex; flex-direction: column; align-items: center;">
+    <div style="display: flex; gap: 32px;">
+        <h2 id="humanPoint">You: 0</h2>
+        <h2 id="computerPoint">Computer: 0</h2>
+    </div>
+   <img src="https://t4.ftcdn.net/jpg/03/32/86/27/360_F_332862747_zb0oXy6txyqlopzJAW3UNQJCPxTg7eUx.jpg">
+   <h2 id="choices"></h2>
+   <script src="rps.js"></script>
 
-    function getComputerChoice() {
-        let number = Math.floor(Math.random() * 3) + 1;
-        if (number === 1) {
-            return "rock";
-        } else if (number === 2) {
-            return "paper";
-        } else {
-            return "scissors";
-        }
-    }
-
-    function getHumanChoice() {
-        let choice;
-        while (true) {
-            choice = prompt("Enter your choice (Rock, Paper, Scissors)").toLowerCase()
-            if (choice == "rock" || choice == "paper" || choice == "scissors") {
-                break;
-            }
-            alert("Error, please type in your choice correctly!")
-        }
-
-        return choice;
-    }
-
-    function play() {
-        while (true) {
-            let computerChoice = getComputerChoice();
-            let humanChoice = getHumanChoice();
-
-            if (
-            (humanChoice === "scissors" && computerChoice === "paper") ||
-            (humanChoice === "paper" && computerChoice === "rock") || 
-            (humanChoice === "rock" && computerChoice === "scissors") 
-            ) {
-            humanScore++;
-            } else if (humanChoice === computerChoice) {
-            } else {
-                computerScore++;
-            }
-
-            alert(`Your Score: ${humanScore}, Computer Score: ${computerScore}`);
-            
-            let answer;
-
-            while (true) {
-                answer = prompt(`Do you want to continue to play? (Y/N)`).toUpperCase();
-                
-                if (answer === 'Y' || answer === 'N') {
-                    break;
-                } else {
-                    alert("Please enter Y or N");
-                }
-            }
-
-            if (answer === "N") {
-                alert(`Final Score: You: ${humanScore}, Computer: ${computerScore}`);
-                alert('Thanks For Playing');
-                break;
-            }
-        }
-    }
-    </script>
-    <img src="https://t4.ftcdn.net/jpg/03/32/86/27/360_F_332862747_zb0oXy6txyqlopzJAW3UNQJCPxTg7eUx.jpg">
 </body>
 </html>
